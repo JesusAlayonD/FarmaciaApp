@@ -21,7 +21,9 @@ app.use(function (request, response, next) {
 });
 
 app.get("/", () => {
-  console.log("Welcome to Online Store...");
+  res.status(200).send({
+    msg: "Hola",
+  });
 });
 
 app.use("/api/v1", routes);
