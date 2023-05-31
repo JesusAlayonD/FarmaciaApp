@@ -20,7 +20,7 @@ app.use(function (request, response, next) {
   next();
 });
 
-app.get("/", () => {
+app.get("/", (req, res) => {
   res.status(200).send({
     msg: "Hola",
   });
