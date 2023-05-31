@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1", routes);
 
-const PORT = process.env.APP_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log("http://127.0.0.1:" + PORT);
 });
