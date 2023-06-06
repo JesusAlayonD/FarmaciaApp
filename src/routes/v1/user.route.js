@@ -5,7 +5,6 @@ const http = require("../../utils/httpresponse");
 
 router.get("/", async (req, res, next) => {
   try {
-    console.log(req.query);
     const payload = await User.searchByQuery(req.query);
     const status = await http.status(payload);
     res.status(status).json(payload);
@@ -17,7 +16,6 @@ router.get("/", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   try {
     let fields = req.body;
-    console.log(fields);
     const payload = await User.signin(fields);
     const status = await http.status(payload);
     res.status(status).json(payload);

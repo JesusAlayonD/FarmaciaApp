@@ -5,7 +5,6 @@ const http = require("../../utils/httpresponse");
 
 router.get("/", async (req, res, next) => {
   try {
-    console.log(req.query);
     const payload = await Pharmacy.searchByQuery(req.query);
     const status = await http.status(payload);
     res.status(status).json(payload);
@@ -17,7 +16,6 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const payload = await Pharmacy.create(req.body);
-    console.log(payload);
     const status = await http.status(payload);
     res.status(status).json(payload);
   } catch (error) {
