@@ -27,6 +27,22 @@ class OrderController {
     }
   }
 
+  async addProduct(id, fields) {
+    try {
+      await Order.updateOne(
+        { _id: id },
+        { $push: { products: fields.product } }
+      );
+      await Order.updateOne(
+        { _id: id },
+        { $push: { quantity: fields.quantity } }
+      );
+      return await Order.find({ _id: id });
+    } catch (error) {
+      return error;
+    }
+  }
+
   async delete(id) {
     try {
       return await Order.deleteOne({ _id: id });

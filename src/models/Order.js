@@ -7,11 +7,11 @@ const orderSchema = new Schema(
       default: true,
     },
     quantity: {
-      type: String,
-      required: true,
+      type: [Number],
+      default: [],
     },
     total: {
-      type: String,
+      type: Number,
       required: true,
     },
     address: { type: String, require: true },
@@ -19,9 +19,9 @@ const orderSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    product: {
-      type: Schema.Types.ObjectId,
-      ref: "Product",
+    products: {
+      type: [Schema.Types.ObjectId],
+      default: [],
     },
     pharmacy: {
       type: Schema.Types.ObjectId,
