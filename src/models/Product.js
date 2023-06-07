@@ -19,6 +19,7 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Pharmacy",
   },
+  picture: { type: String, default: "" },
 });
 
 const Product = model("Product", productSchema, "Products");
